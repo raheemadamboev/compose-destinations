@@ -1,16 +1,16 @@
 package xyz.teamgravity.composedestinations.presentation.screen
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
 @Composable
 fun ProfileScreen(
+    navController: NavController,
     mail: String,
     userId: String,
     password: Long
@@ -21,5 +21,28 @@ fun ProfileScreen(
         Text(text = "userId: $userId")
         Spacer(modifier = Modifier.height(10.dp))
         Text(text = "password: $password")
+        Spacer(modifier = Modifier.height(10.dp))
+        Row(modifier = Modifier.fillMaxWidth()) {
+            Button(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(horizontal = 10.dp),
+                onClick = {
+                    navController.navigate("war/${true}")
+                }
+            ) {
+                Text(text = "I want war!")
+            }
+            Button(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(horizontal = 10.dp),
+                onClick = {
+                    navController.navigate("war/${false}")
+                }
+            ) {
+                Text(text = "I want peace!")
+            }
+        }
     }
 }

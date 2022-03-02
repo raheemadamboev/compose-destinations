@@ -36,10 +36,22 @@ fun Navigation() {
             val password = it.arguments?.getLong("password")!!
 
             ProfileScreen(
+                navController = navController,
                 mail = mail,
                 userId = userId,
                 password = password
             )
+        }
+        composable(route = "war/{war}",
+            arguments = listOf(
+                navArgument("war") {
+                    type = NavType.BoolType
+                    defaultValue = false
+                }
+            )) {
+            val war = it.arguments?.getBoolean("war")!!
+
+            WarScreen(war = war)
         }
     }
 }
