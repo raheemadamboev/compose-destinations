@@ -1,4 +1,4 @@
-package xyz.teamgravity.composedestinations
+package xyz.teamgravity.composedestinations.presentation.activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -6,14 +6,11 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import xyz.teamgravity.composedestinations.presentation.screen.Navigation
-import xyz.teamgravity.composedestinations.ui.theme.ComposeDestinationsTheme
+import xyz.teamgravity.composedestinations.presentation.theme.ComposeDestinationsTheme
 
-class MainActivity : ComponentActivity() {
+class Main : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

@@ -1,4 +1,4 @@
-package xyz.teamgravity.composedestinations.ui.theme
+package xyz.teamgravity.composedestinations.presentation.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
