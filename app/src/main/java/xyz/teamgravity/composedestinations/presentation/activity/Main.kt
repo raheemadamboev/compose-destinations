@@ -7,7 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import xyz.teamgravity.composedestinations.presentation.screen.Navigation
+import com.ramcosta.composedestinations.DestinationsNavHost
+import xyz.teamgravity.composedestinations.presentation.screen.NavGraphs
 import xyz.teamgravity.composedestinations.presentation.theme.ComposeDestinationsTheme
 
 class Main : ComponentActivity() {
@@ -16,7 +17,7 @@ class Main : ComponentActivity() {
         setContent {
             ComposeDestinationsTheme {
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-                    Navigation()
+                    DestinationsNavHost(navGraph = NavGraphs.root)
                 }
             }
         }

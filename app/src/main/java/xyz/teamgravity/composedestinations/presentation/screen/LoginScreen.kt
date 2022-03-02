@@ -9,13 +9,15 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
+import xyz.teamgravity.composedestinations.data.model.UserModel
+import xyz.teamgravity.composedestinations.presentation.screen.destinations.ProfileScreenDestination
 
 @Destination(start = true)
 @Composable
 fun LoginScreen(
-    navController: NavController
+    navigator: DestinationsNavigator
 ) {
     var mail by remember { mutableStateOf("") }
     var userId by remember { mutableStateOf("") }
@@ -62,7 +64,15 @@ fun LoginScreen(
         Spacer(modifier = Modifier.height(16.dp))
         Button(
             onClick = {
-                navController.navigate("profile/$mail/$userId/$password")
+                navigator.navigate(
+                    direction = ProfileScreenDestination(
+                        user = UserModel(
+                            mail = mail,
+                            userId = userId,
+                            password = password.toLong()
+                        )
+                    )
+                )
             }
         ) {
             Text(text = "Login")

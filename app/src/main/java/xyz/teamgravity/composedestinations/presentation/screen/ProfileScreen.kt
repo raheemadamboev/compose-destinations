@@ -6,23 +6,23 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
+import xyz.teamgravity.composedestinations.data.model.UserModel
+import xyz.teamgravity.composedestinations.presentation.screen.destinations.WarScreenDestination
 
 @Destination
 @Composable
 fun ProfileScreen(
-    navController: NavController,
-    mail: String,
-    userId: String,
-    password: Long
+    navigator: DestinationsNavigator,
+    user: UserModel
 ) {
     Column(modifier = Modifier.fillMaxSize()) {
-        Text(text = "mail: $mail")
+        Text(text = "mail: ${user.mail}")
         Spacer(modifier = Modifier.height(10.dp))
-        Text(text = "userId: $userId")
+        Text(text = "userId: ${user.userId}")
         Spacer(modifier = Modifier.height(10.dp))
-        Text(text = "password: $password")
+        Text(text = "password: ${user.password}")
         Spacer(modifier = Modifier.height(10.dp))
         Row(modifier = Modifier.fillMaxWidth()) {
             Button(
@@ -30,7 +30,7 @@ fun ProfileScreen(
                     .weight(1f)
                     .padding(horizontal = 10.dp),
                 onClick = {
-                    navController.navigate("war/${true}")
+                    navigator.navigate(WarScreenDestination(war = true))
                 }
             ) {
                 Text(text = "I want war!")
@@ -40,7 +40,7 @@ fun ProfileScreen(
                     .weight(1f)
                     .padding(horizontal = 10.dp),
                 onClick = {
-                    navController.navigate("war/${false}")
+                    navigator.navigate(WarScreenDestination(war = false))
                 }
             ) {
                 Text(text = "I want peace!")
